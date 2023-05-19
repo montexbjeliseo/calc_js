@@ -130,6 +130,7 @@ body.dark {
       background-color: lightskyblue;
   }
 
-  .panelSuperior {
+  .panelSuperior, 
+  .panelInferior {
     padding: 10px;
   }
