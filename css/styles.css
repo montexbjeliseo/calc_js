@@ -1,136 +1,147 @@
 body.dark {
-    background-color: #333;
-    color: #fff;
-  }
-  
-  /* The switch - the box around the slider */
-  .switch {
-      position: relative;
-      display: inline-block;
-      width: 30px;
-      height: 18px;
-      margin-top: 5px;
-    }
-    
-    /* Hide default HTML checkbox */
-    .switch input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-    
-    /* The slider */
-    .slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #ccc;
-      -webkit-transition: .4s;
-      transition: .4s;
-    }
-    
-    .slider:before {
-      position: absolute;
-      content: "";
-      height: 13px;
-      width: 13px;
-      left: 4px;
-      bottom: 4px;
-      background-color: white;
-      -webkit-transition: .4s;
-      transition: .4s;
-    }
-    
-    input:checked + .slider {
-      background-color: #2196F3;
-    }
-    
-    input:focus + .slider {
-      box-shadow: 0 0 1px #2196F3;
-    }
-    
-    input:checked + .slider:before {
-      -webkit-transform: translateX(13px);
-      -ms-transform: translateX(13px);
-      transform: translateX(13px);
-    }
-    
-    /* Rounded sliders */
-    .slider.round {
-      border-radius: 16px;
-    }
-    
-    .slider.round:before {
-      border-radius: 50%;
-    }
-  
-  #app {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-  }
-  .calculadora {
-      display: inline-block;
-      border: 1px solid #ccc;
-      box-shadow: 3px 3px 3px #ccc;
-      border-radius: 5px;
-      font-weight: bold;
-  }
-  
-  .pantalla {
-      border: 1px solid #ccc;
-      padding: 5px;
-      height: 32px;
-      font-weight: bold;
-      text-align: right;
-  }
-  
-  .boton {
-     width: 32px;
-     height: 32px;
-     border: 0;
-     margin: 5px;
-     font-weight: bold;
-     border-radius: 5px;
-  }
-  
-  .boton.rojo {
-      background: rgb(210, 0, 0);
-      color: #fff;
-  }
-  
-  .boton.rojo:hover {
-      background-color: rgba(255, 0, 0);
-  }
-  
-  .boton.rojo:active{
-      background-color: #fff;
-      color:rgb(210, 0, 0);
-      border: 1px solid rgba(255, 0, 0);
-  }
-  
-  .boton.naranja {
-      background-color: orange;
-      color: #fff;
-  }
-  
-  .boton.numero {
-      background-color: #ccc;
-  }
-  
-  .boton.igual {
-      background-color: green;
-      color: #fff;
-  }
-  
-  .boton.celeste {
-      background-color: lightskyblue;
-  }
+  background-color: #333;
+  color: #fff;
+}
 
-  .panelSuperior, 
-  .panelInferior {
-    padding: 10px;
-  }
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 18px;
+  margin-top: 5px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked+.slider {
+  background-color: #2196F3;
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+  -webkit-transform: translateX(13px);
+  -ms-transform: translateX(13px);
+  transform: translateX(13px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 16px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+#app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calculadora {
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-shadow: 3px 3px 3px #ccc;
+  border-radius: 5px;
+  font-weight: bold;
+  background-image: linear-gradient(180deg, #37363b 0%, #8f8f98 35%, #292c2c 100%);
+}
+
+.dark .calculadora {
+  background-image: linear-gradient(180deg, #020024 0%, #090979 35%, #091518 100%);
+}
+
+.pantalla {
+  border: 1px solid #ccc;
+  padding: 5px;
+  height: 32px;
+  font-weight: bold;
+  text-align: right;
+  background-color: #8f8f98;
+}
+
+.dark .pantalla {
+  background-color: #2b2b2d;
+}
+
+.boton {
+  width: 32px;
+  height: 32px;
+  border: 0;
+  margin: 5px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.boton.rojo {
+  background: rgb(210, 0, 0);
+  color: #fff;
+}
+
+.boton.rojo:hover {
+  background-color: rgba(255, 0, 0);
+}
+
+.boton.rojo:active {
+  background-color: #fff;
+  color: rgb(210, 0, 0);
+  border: 1px solid rgba(255, 0, 0);
+}
+
+.boton.naranja {
+  background-color: orange;
+  color: #fff;
+}
+
+.boton.numero {
+  background-color: #ccc;
+}
+
+.boton.igual {
+  background-color: green;
+  color: #fff;
+}
+
+.boton.celeste {
+  background-color: lightskyblue;
+}
+
+.panelSuperior,
+.panelInferior {
+  padding: 10px;
+}
