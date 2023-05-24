@@ -102,9 +102,12 @@ function onClickBoton(evento){
         case '/':
             pantalla.innerText=ponerOperador(expresion, valor);
             break;
+        case '( )':
+            pantalla.innerText=ponerParentesis(expresion); 
+            break;    
         default:
             pantalla.innerText+=valor;
-            break 
+            break; 
     } 
 
 }
@@ -116,8 +119,34 @@ function ponerOperador(expresion, valor){
     if (!"/*+-(".includes(ultimaEntrada)&& ultimaEntrada!=="" || 
     (expresion == "" || ultima_entrada == "(") && operador == "-"){
         return expresion+valor;
-     } 
-     return expresion;
+    }  
+    return expresion;
+}
+
+function ponerParentesis(expresion){
+    let parentesisAbierto = 0;
+    let parentesisCerrado = 0;
+    let operadores = ["-", "+", "*", "/"];
+    let ultimaEntrada = expresion[expresion.length-1];
+    if (expresion === '' || operadores.includes(ultimaEntrada) || ultimaEntrada === '(') {
+        return expresion +'(';
+    }
+    for (let caracter of expresion) {
+        if (caracter === '(') {
+            parentesisAbierto++;
+        } else if (caracter === ')'){
+            parentesisCerrado++;
+        }
+        
+    }
+
+    if (parentesisAbierto > parentesisCerrado && !operadores.includes(ultimaEntrada) &&
+    ultimaEntrada != '(') {
+        return expresion+')';
+    } 
+
+    //No se pueden agregar mas parentesis 
+    return expresion;
 }
 
 
