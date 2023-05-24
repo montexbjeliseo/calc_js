@@ -104,9 +104,12 @@ function onClickBoton(evento){
             break;
         case '( )':
             pantalla.innerText=ponerParentesis(expresion); 
-            break;    
+            break; 
+        case '.':
+            pantalla.innerText=ponerDecimal(expresion);
+            break;   
         default:
-            pantalla.innerText+=valor;
+            pantalla.innerText=ponerNumero(expresion, valor);
             break; 
     } 
 
@@ -149,6 +152,58 @@ function ponerParentesis(expresion){
     return expresion;
 }
 
+function ponerDecimal(expresion){
+    // Cualquiera de estos caracteres,
+    // Nos va a marcar un límite, el principio del término
+    let limite = "()/-+*";
+
+    let index = -1;
+    
+    // Recorremos de atrás para delante
+    for (let i = expresion.length - 1; i > -1; i--){
+        if (limite.includes(expresion[i])){
+            // Se encontró un límite
+            index = i + 1;
+            break;
+        }
+    }
+
+    // Suponemos que la expresión es un solo término
+    let termino = expresion;
+
+    // Sin embargo
+    // De haberse encontrado un índice
+    if (index > 0){
+        // Se recorta el último término
+        termino = expresion.substring(index, expresion.length);
+    }
+
+    // Podemos agregarlo
+    if (!termino.includes(".") && termino != ""){
+        return expresion + ".";
+    }
+
+    // No efectúa ningún cambio
+    return expresion;
+
+}
+
+function ponerNumero(expresion, valor){
+    let ultima_entrada = expresion[expresion.length - 1];
+    // Si la expresion es distinto de 0 y la última entrada
+    // NO es un paréntesis de cierre
+    if (expresion != "0" && ultima_entrada != ")"){
+        // Se agregar el valor
+        return expresion + valor;
+    // En cambio
+    // Si la expresión es 0
+    } else if(expresion == "0"){
+        // Reemplaza el cero por el nuevo valor
+        return valor;
+    }
+    // No se efectúa cambios
+    return expresion;
+}
 
 crearCalculadora();
 
