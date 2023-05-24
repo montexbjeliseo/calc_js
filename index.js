@@ -16,7 +16,8 @@ function crearPanelSuperior(){
 
 function crearPantalla(){
     const pantalla= document.createElement('div');
-    pantalla.innerText = '2 + 4';
+    pantalla.id = 'pantalla'
+    // pantalla.innerText = '2 + 4';
     pantalla.classList.add('pantalla');
     return pantalla;
 }
@@ -43,6 +44,33 @@ function crearBotones() {
         const boton = document.createElement('button');
         const texto = document.createTextNode(valor);
         boton.appendChild(texto);
+        boton.classList.add('boton');
+        divFila.appendChild(boton);
+        switch(valor) {
+            case 'C':
+                boton.classList.add('rojo');
+                break;
+            case '←':
+                boton.classList.add('naranja');
+                break;
+            case '=':
+                boton.classList.add('igual');
+                break;   
+            case '%':
+                boton.disabled=true;
+                break;        
+
+            case '*':
+            case '-':
+            case '+':
+            case '/':
+                boton.classList.add('celeste');
+                break;
+            default:    
+                boton.classList.add('numero');
+            break;
+        }
+        boton.addEventListener('click', onClickBoton);
         divFila.appendChild(boton);
         });
         botones.appendChild(divFila);
@@ -50,8 +78,46 @@ function crearBotones() {
     return botones;
 }
 
+function onClickBoton(evento){
+    const pantalla = document.getElementById('pantalla');
+    const valor = evento.target.innerText;
+    let expresion = pantalla.innerText;
+    switch(valor){
+        case 'C':
+            pantalla.innerText= "";
+            break;
+        case '←':
+            pantalla.innerText = expresion.substring(0, expresion.length - 1);
+            break;    
+        case '=':
+            try {
+                pantalla.innerText=eval(expresion)
+            } catch (error) {
+                console.log(error);
+            }    
+            break;
+            default:
+                pantalla.innerText+=valor;
+                break;
+    }
+}
+function ponerOperador(expresion, valor) {
+    const ultimaEntrada= expresion[expresion.length-1];
+    //si la ultima entrada NO es igual a *+-/()
+    //y no esta vacia
+
+    if(! "/*+-(".includes(ultimaEntrada)&& ultimaEntrada!==''||
+    (expresion == "" || ultima_entrada == "(") && operador == "-") {
+        return expresion+valor;
+    }
+    return expresion;
+}
+
+
 
 crearCalculadora();
+
+
 
 
 

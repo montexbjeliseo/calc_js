@@ -89,12 +89,12 @@ body.dark {
   }
   
   .boton {
-     width: 32px;
-     height: 32px;
-     border: 0;
-     margin: 5px;
-     font-weight: bold;
-     border-radius: 5px;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    margin: 5px;
+    font-weight: bold;
+    border-radius: 5px;
   }
   
   .boton.rojo {
@@ -134,3 +134,5 @@ body.dark {
   .panelInferior {
     padding: 10px;
   }
+
+
