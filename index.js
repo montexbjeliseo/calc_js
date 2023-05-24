@@ -10,6 +10,7 @@ function crearCalculadora (){
 function crearPanelSuperior(){
     const panelSuperior= document.createElement('div');
     panelSuperior.appendChild(crearPantalla());
+    panelSuperior.appendChild(crearBotonAlternarTema());
     panelSuperior.classList.add('panelSuperior');
     return panelSuperior;
 }
@@ -204,6 +205,25 @@ function ponerNumero(expresion, valor){
     // No se efectúa cambios
     return expresion;
 }
+
+function crearBotonAlternarTema() {
+    let switchContainer = document.createElement("label");
+    switchContainer.classList.add("switch");
+    let checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    switchContainer.appendChild(checkbox);
+    let slider = document.createElement("span");
+    slider.classList.add("slider");
+    slider.classList.add("round");
+    switchContainer.appendChild(slider);
+    switchContainer.addEventListener("change", alternarTema);
+    return switchContainer;
+}
+
+function alternarTema(event) {
+    document.body.classList.toggle("dark");
+}
+
 
 crearCalculadora();
 
